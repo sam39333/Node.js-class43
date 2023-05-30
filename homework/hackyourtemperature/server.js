@@ -12,7 +12,7 @@ app.get("/", (req,res) => {
 
 app.post("/weather", (req,res) =>{
     const {city} = req.body;
-    res.send(city);
+    res.send(`${city}`);
 });
 
 
