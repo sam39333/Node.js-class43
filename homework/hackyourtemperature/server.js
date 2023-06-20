@@ -1,24 +1,22 @@
 import express from "express";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 
-
-app.get("/", (req,res) => {
-    res.send("hello from backend to frontend!")
+app.get("/", (req, res) => {
+  res.send("Hello from backend to frontend!");
 });
 
-
-
-app.post("/weather", (req,res) =>{
-    const {city} = req.body;
-    res.send(`${city}`);
+app.post("/weather", (req, res) => {
+  const { city } = req.body;
+  res.send(city);
 });
-
-
-
-
 
 app.listen(port, () => {
-    console.log(`listening to port ${port}`)
-})
+  console.log(`Listening on port ${port}`);
+});
